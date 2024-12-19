@@ -3,7 +3,8 @@ import pygame
 class BoardCell:
     
     
-    def __init__(self, top_left, width, height, color):
+    def __init__(self, screen, top_left, width, height, color):
+        self.screen = screen
         self.top_left = top_left
         self.width = width
         self.height = height
@@ -15,3 +16,6 @@ class BoardCell:
     def can_move(self) -> bool:
         # Method to check if the cell is empty and can be moved to
         return self.is_empty
+    
+    def draw_self(self):
+        pygame.draw.rect(self.screen,self.color,pygame.Rect(self.top_left[0],self.top_left[1],self.width,self.height))
